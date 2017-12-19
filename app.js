@@ -1,8 +1,8 @@
 var clock = document.getElementById('clock');
 
-function hexClock() {
+function Clock() {
   var time = new Date();
-  var hours = (time.getHours() % 12).toString();
+  var hours = time.getHours().toString();
   var minutes = time.getMinutes().toString();
   var seconds = time.getSeconds().toString();
 
@@ -24,5 +24,5 @@ function hexClock() {
   
 }
 
-hexClock();
-setInterval(hexClock, 1000);
+Clock();
+setInterval(Clock, 1000);

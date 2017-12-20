@@ -1,19 +1,14 @@
 var Clock = /** @class */ (function () {
-    //    var h : string ;
-    //    var m : string ;
-    //    var s : string ;
-    function Clock(h, m, s) {
-        this.hours = h;
-        this.minutes = m;
-        this.seconds = s;
+    function Clock(element) {
+        var _this = this;
+        this.el = element;
+        setInterval(function () { return _this.run(); }, 1000);
     }
-    Clock.prototype.timeGenerate = function () {
+    Clock.prototype.run = function () {
         var time = new Date();
         var hours = time.getHours().toString();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
-    };
-    Clock.prototype.print = function () {
         if (hours.length < 2) {
             hours = '0' + hours;
         }
@@ -24,12 +19,8 @@ var Clock = /** @class */ (function () {
             seconds = '0' + seconds;
         }
         var clockStr = hours + ' : ' + minutes + ' : ' + seconds;
+        this.el.textContent = clockStr;
     };
     return Clock;
 }());
-Clock.timeGenerate();
-var newClock = new Clock(hours, minutes, seconds);
-Clock.print();
-//
-//setInterval(newClock, 1000);
-document.getElementById('tsClock').innerHTML = newClock;
+var clock = new Clock(document.getElementById('tsClock'));

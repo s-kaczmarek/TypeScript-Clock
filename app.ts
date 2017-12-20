@@ -29,4 +29,6 @@ class Clock {
   }
 }
 
-const clock = new Clock(document.getElementById('tsClock'))
+const clock = new Clock(document.getElementById('tsClock'));
+
+var utcChange = document.getElementById('button');

@@ -31,4 +31,10 @@ class Clock {
 
 const clock = new Clock(document.getElementById('tsClock'));
 
-var utcChange = document.getElementById('button');
+var utcButton = document.getElementById('button');
+var container = document.getElementById('container');
+utcButton.addEventListener("click", change);
+
+function change() {
+    container.textContent = 'works!';
+}

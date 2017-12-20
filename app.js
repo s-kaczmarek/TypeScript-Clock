@@ -24,3 +24,9 @@ var Clock = /** @class */ (function () {
     return Clock;
 }());
 var clock = new Clock(document.getElementById('tsClock'));
+var utcButton = document.getElementById('button');
+var container = document.getElementById('container');
+utcButton.addEventListener("click", change);
+function change() {
+    container.textContent = 'works!';
+}

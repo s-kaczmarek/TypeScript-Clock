@@ -29,12 +29,12 @@ class Clock {
   }
 }
 
-const clock = new Clock(document.getElementById('tsClock'));
+var clock = new Clock(document.getElementById('tsClock')); // const changed to var
 
 var utcButton = document.getElementById('button');
-var container = document.getElementById('container');
-utcButton.addEventListener("click", change);
+var utcClock = document.getElementById('tsClock');
+utcButton.addEventListener("click", utcChange);
 
-function change() {
-    container.textContent = 'works!';
+function utcChange() {
+    var clock = new Clock(document.getElementById('tsClock') + 'works');
 }

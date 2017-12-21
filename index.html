@@ -6,6 +6,7 @@
     <title>Typescript Clock</title>
     
     <style>
+        
         body {
         background-color: royalblue;    
         font-family: 'Lato';
@@ -14,10 +15,39 @@
         color: ivory;
         }
 
-        #clock {
+        #tsClock {
         font-weight: 300;
         font-size: 100px;
         }
+        
+        #button {
+        margin-top: 20px;
+        line-height: 60px;
+        font-weight: bold;
+        color: ivory;
+        padding: 0 30px;
+        background: #3373ff;
+        border: 5px #3373ff;
+        border-radius: 15px;    
+        }
+        
+        #button:hover {
+        background: #3f7cff;
+        border: 5px #3f7cff;
+        color: silver;    
+        }
+        
+        #button:target {
+        margin-top: 20px;
+        line-height: 60px;
+        font-weight: bold;
+        color: ivory;
+        padding: 0 30px;
+        background: #3373ff;
+        border: 5px #3373ff;
+        border-radius: 15px;    
+        }
+        
     </style>
     
     
@@ -25,7 +55,8 @@
 
 <body>
     
-  <h1 id="clock"></h1>
+  <h1 id="tsClock"></h1>
+  <button id="button">UTC+03:00 (Moscow)</button>     
   <script src="app.js"></script>
     
 </body>

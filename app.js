@@ -6,11 +6,12 @@ var Clock = /** @class */ (function () {
     }
     Clock.prototype.run = function () {
         var time = new Date();
-        var hours = time.getHours().toString();
+        this.hours = time.getHours() + utcValue;
+        var hoursChanged = this.hours.toString();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
-        if (hours.length < 2) {
-            hours = '0' + hours;
+        if (hoursChanged.length < 2) {
+            hoursChanged = '0' + hoursChanged;
         }
         if (minutes.length < 2) {
             minutes = '0' + minutes;
@@ -18,15 +19,20 @@ var Clock = /** @class */ (function () {
         if (seconds.length < 2) {
             seconds = '0' + seconds;
         }
-        var clockStr = hours + ' : ' + minutes + ' : ' + seconds;
+        var clockStr = hoursChanged + ' : ' + minutes + ' : ' + seconds;
         this.el.textContent = clockStr;
     };
     return Clock;
 }());
-var clock = new Clock(document.getElementById('tsClock')); // const changed to var
+var clock = new Clock(document.getElementById('tsClock'));
 var utcButton = document.getElementById('button');
-var utcClock = document.getElementById('tsClock');
 utcButton.addEventListener("click", utcChange);
+var utcValue = 0;
 function utcChange() {
-    var clock = new Clock(document.getElementById('tsClock') + 'works');
+    if (clock.hours < 23) {
+        utcValue += 1;
+    }
+    else {
+        utcValue -= 23;
+    }
 }

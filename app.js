@@ -6,8 +6,8 @@ var Clock = /** @class */ (function () {
     }
     Clock.prototype.run = function () {
         var time = new Date();
-        var hours = time.getHours() + utcValue;
-        var hoursChanged = hours.toString();
+        this.hours = time.getHours() + utcValue;
+        var hoursChanged = this.hours.toString();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
         if (hoursChanged.length < 2) {
@@ -19,15 +19,20 @@ var Clock = /** @class */ (function () {
         if (seconds.length < 2) {
             seconds = '0' + seconds;
         }
-        var clockStr = hours + ' : ' + minutes + ' : ' + seconds;
+        var clockStr = hoursChanged + ' : ' + minutes + ' : ' + seconds;
         this.el.textContent = clockStr;
     };
     return Clock;
 }());
-var clock = new Clock(document.getElementById('tsClock')); // const changed to var
+var clock = new Clock(document.getElementById('tsClock'));
 var utcButton = document.getElementById('button');
 utcButton.addEventListener("click", utcChange);
 var utcValue = 0;
 function utcChange() {
-    utcValue += 1;
+    if (clock.hours < 23) {
+        utcValue += 1;
+    }
+    else {
+        utcValue -= 23;
+    }
 }

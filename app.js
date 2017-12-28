@@ -6,7 +6,8 @@ var Clock = /** @class */ (function () {
     }
     Clock.prototype.run = function () {
         var time = new Date();
-        var hours = time.getHours().toString();
+        var hours = time.getHours() + utcValue;
+        var hoursChanged = hours.toString();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
         if (hours.length < 2) {
@@ -25,8 +26,8 @@ var Clock = /** @class */ (function () {
 }());
 var clock = new Clock(document.getElementById('tsClock')); // const changed to var
 var utcButton = document.getElementById('button');
-var utcClock = document.getElementById('tsClock');
 utcButton.addEventListener("click", utcChange);
+var utcValue = 0;
 function utcChange() {
-    var clock = new Clock(document.getElementById('tsClock') + 'works');
+    utcValue += 1;
 }

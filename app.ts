@@ -7,7 +7,8 @@ class Clock {
   
   run() {
     var time = new Date();
-    var hours = time.getHours().toString();
+    var hours = time.getHours()+utcValue;
+    var hoursChanged = hours.toString();
     var minutes = time.getMinutes().toString();
     var seconds = time.getSeconds().toString();
   
@@ -32,9 +33,10 @@ class Clock {
 var clock = new Clock(document.getElementById('tsClock')); // const changed to var
 
 var utcButton = document.getElementById('button');
-var utcClock = document.getElementById('tsClock');
 utcButton.addEventListener("click", utcChange);
+var utcValue = 0
 
-function utcChange() {
-    var clock = new Clock(document.getElementById('tsClock') + 'works');
+function utcChange(){
+    utcValue += 1
 }
+

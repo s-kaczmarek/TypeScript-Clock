@@ -12,8 +12,8 @@ class Clock {
     var minutes = time.getMinutes().toString();
     var seconds = time.getSeconds().toString();
   
-    if (hours.length < 2) {
-      hours = '0' + hours;
+    if (hoursChanged.length < 2) {
+      hoursChanged = '0' + hoursChanged;
     }
   
     if (minutes.length < 2) {
@@ -31,7 +31,6 @@ class Clock {
 }
 
 var clock = new Clock(document.getElementById('tsClock')); // const changed to var
-
 var utcButton = document.getElementById('button');
 utcButton.addEventListener("click", utcChange);
 var utcValue = 0
@@ -39,4 +38,3 @@ var utcValue = 0
 function utcChange(){
     utcValue += 1
 }
-

@@ -10,8 +10,8 @@ var Clock = /** @class */ (function () {
         var hoursChanged = hours.toString();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
-        if (hours.length < 2) {
-            hours = '0' + hours;
+        if (hoursChanged.length < 2) {
+            hoursChanged = '0' + hoursChanged;
         }
         if (minutes.length < 2) {
             minutes = '0' + minutes;
